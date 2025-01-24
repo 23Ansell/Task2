@@ -32,6 +32,11 @@ def get_db_connection():
     return conn
 
 
+@app.route('/')
+def index():
+    return render_template('index.html', is_logged_in=is_logged_in)
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
